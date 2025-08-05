@@ -1,38 +1,29 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background: linear-gradient(135deg, #181c23 0%, #222b36 100%);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.welcome-message {
+  margin-top: 2vw;
+  text-align: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 2.8rem;
+  color: #228fff;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-shadow: 0 3px 28px #111, 0 0px 5px #101b21;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.welcome-message b {
+  color: #f3c96b;
+  font-weight: 900;
+  text-shadow: 0 2px 14px #222, 0 1px 2px #feed8d;
+}
+
+.welcome-subtext {
+  font-size: 1.23rem;
+  color: #fedb92;
+  margin-top: 1vw;
+  font-family: "Segoe UI", Arial, sans-serif;
 }

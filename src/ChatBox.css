@@ -1,0 +1,94 @@
+.chatbox {
+  border-radius: 22px;
+  width: 480px;
+  padding: 30px 28px 28px 28px;
+  background: rgba(24,28,35,0.90);
+  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.42), 0 1.5px 0 #fedb92;
+  margin: 38px auto 0 auto;
+  border: 2.5px solid #f3c96b;
+  transition: box-shadow 0.32s, border 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbox-messages {
+  max-height: 320px;
+  overflow-y: auto;
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 2px;
+}
+
+.chatbox-message {
+  border-radius: 12px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1.13rem;
+  line-height: 1.65;
+  padding: 13px 20px;
+  max-width: 86%;
+  transition: background 0.23s, color 0.22s, transform 0.17s;
+}
+.chatbox-message.user {
+  background: linear-gradient(95deg, #1979d4 75%, #247cf2 100%);
+  color: #fff;
+  border: 1.5px solid #228fff;
+  margin-left: auto;
+  text-align: right;
+}
+.chatbox-message.user:hover {
+  background: linear-gradient(95deg, #154c8f 65%, #2991f4 100%);
+  color: #fedb92;
+}
+.chatbox-message.bot {
+  background: linear-gradient(90deg, #232328 82%, #2a2820 100%);
+  color: #f3c96b;
+  border: 1.5px solid #fedb92;
+  margin-right: auto;
+  text-align: left;
+}
+.chatbox-message.bot:hover {
+  background: #282828;
+  color: #99c3fe;
+}
+
+.chatbox-input {
+  display: flex;
+  box-shadow: 0 2px 7px 0 #15192c;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.7px solid #fedb92;
+  background: #24272e;
+  padding: 0;
+}
+.chatbox-input input {
+  flex: 1;
+  padding: 13px;
+  font-size: 1.09rem;
+  background: #222932;
+  color: #feed8d;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  transition: background 0.16s, color 0.16s;
+}
+.chatbox-input input:focus {
+  background: #232a34;
+  color: #f3c96b;
+}
+.chatbox-input button {
+  background: linear-gradient(93deg, #fedb92 94%, #fedb92 95.5%, #fedb92 98%, #cb9c2c 100%);
+  color: #24272e;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  padding: 0 28px;
+  cursor: pointer;
+  transition: background 0.21s, color 0.15s;
+}
+.chatbox-input button:hover {
+  background: linear-gradient(95deg, #228fff 80%, #fedb92 100%);
+  color: #181c23;
+}

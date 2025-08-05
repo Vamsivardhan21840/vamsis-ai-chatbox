@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DeveloperHeader from "./DeveloperHeader"; // Import the DeveloperHeader component
+import Navigation from "./Navigation";
+import ChatBox from "./ChatBox";
+import "./App.css"; // for welcome-message styling
 
-function App() {
+function Welcome() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="welcome-message">
+      <span>Welcome To, <b>Vamsi's AI</b></span>
+      <div className="welcome-subtext">
+        Ask anything, get instant answers.
+      </div>
     </div>
   );
 }
 
-export default App;
+function About() {
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      About: This is a dynamic AI chatbox like ChatGPT.
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <DeveloperHeader /> {/* Added DeveloperHeader above navigation */}
+      <Navigation />
+      <Welcome />
+      <Routes>
+        <Route path="/" element={<ChatBox />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
