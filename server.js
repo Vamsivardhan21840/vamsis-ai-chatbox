@@ -1,33 +1,37 @@
 const express = require("express");
-const axios = require("axios");
 const cors = require("cors");
-require("dotenv").config();
+const axios = require("axios");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.post("/api/chat", async (req, res) => {
+  const { message } = req.body;
+
   try {
     const response = await axios.post(
-      "https://api.openai.com/v1/chat/completions",
+      "http://localhost:11434/v1/chat/completions",  // ✅ Corrected endpoint
       {
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: req.body.message }],
+        model: "tinyllama:1.1b",
+        messages: [{ role: "user", content: message }],
       },
       {
         headers: {
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-          "Content-Type": "application/json",
-        },
+          "Content-Type": "application/json"
+        }
       }
     );
-    res.json(response.data);
+
+    const reply = response.data.choices?.[0]?.message?.content ?? "No response";
+    res.json({ choices: [{ message: { content: reply } }] });
   } catch (error) {
-    res.status(500).json({ error: "OpenAI API request failed." });
+    console.error("Error with Ollama API:", error.message);
+    res.status(500).json({ error: "Failed to get response from Ollama model." });
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
